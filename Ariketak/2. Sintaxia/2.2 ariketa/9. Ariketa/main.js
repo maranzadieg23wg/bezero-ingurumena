@@ -25,7 +25,6 @@ function zenbakiak_eskatu (){
 
     }
 
-  
 
     
 }
