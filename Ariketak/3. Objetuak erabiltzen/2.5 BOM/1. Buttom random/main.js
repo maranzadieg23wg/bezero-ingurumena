@@ -67,8 +67,7 @@ function tamainaX(){
 }
 
 function historyLenghtTotal(){
-    history.pushState({page: 'newState'}, 'New State', '#newState' + history.length);
-    return history.length;
+    return window.history-length;
 }
 
 function imp(z){
