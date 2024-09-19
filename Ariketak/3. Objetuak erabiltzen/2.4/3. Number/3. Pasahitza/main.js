@@ -1,16 +1,18 @@
-function start(){
+function start() {
     let pasahitza = prompt("Sartu zure pasahitza");
 
+    document.write(balidatu(pasahitza));
 }
 
+function balidatu(pas) {
+    const zenbakiaDauka = /\d/;          // Jakiteko ea dagoen zenbakiren bat
+    const maiuskula = /[A-Z]/;          // Jakiteko ea dagoen MAIUSKULA bat
+    const minuskula = /[a-z]/;          // Jakiteko ea dagoen MINUSKULA bat
+    const karaktereBereziak = /[!@#$%^&*(),.?":{}|<>]/; // Jakiteko ea dagoen karaktere ESPECIAL bat
 
-
-function balidatu(cadena) {
-    const zenbakiaDauka = /\d/;          // Expresión regular para encontrar un número
-    const maiuskula = /[A-Z]/;    // Expresión regular para encontrar una letra mayúscula
-    const minuskula = /[a-z]/;    // Expresión regular para encontrar una letra minúscula
-
-    return zenbakiaDauka.test(cadena) && 
-            maiuskula.test(cadena) && 
-            minuskula.test(cadena);
+    return zenbakiaDauka.test(pas) && 
+           maiuskula.test(pas) && 
+           minuskula.test(pas) &&
+           karaktereBereziak.test(pas) &&
+           (pas.length >= 8 && pas.length <= 16); 
 }
