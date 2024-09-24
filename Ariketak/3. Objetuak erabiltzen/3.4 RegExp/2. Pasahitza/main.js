@@ -7,14 +7,14 @@ function start(){
 
 
     let eraJaio = "(?!.*(" + erabiltzailea + "|" + list[0] + "|" + list[1] + "|" + list[2] + "))";    
-    let balidatu = new RegExp(eraJaio+"[A-Z]*[a-z]{3,}(?=.*[#$@!%&*?])", "i");
+    let balidatu = new RegExp(eraJaio+"[A-Z]+[a-z]{3,}(?=.*[#$@!%&*?])[0-9]+");
 
     console.log(balidatu);
 
     if (balidatu.test(pasahitza)) {
-        document.write("Korreoa ondo dago: " + pasahitza);
+        document.write("Pasahitza ondo dago: " + pasahitza);
     }else{
-        document.write("Errorea: Pasahitza ez da zuzena.");
+        document.write("Errorea: Pasahitza ez da zuzena: "+pasahitza);
     }
 
 }
