@@ -1,0 +1,16 @@
+1.	Idatzi ezazu programa bat non erabiltzaileari esaldi bat eskatzen zaion eta, funtzio baten bidez, kalkula dezala zenbat letra sartu diren. Maiuskulaz dauden letrak eta letra xeheak ere aztertu beharko ditu.
+
+2.	Idatzi ezazu funtzio baten kodea non funtzio horri zenbaki oso bat pasako zaion parametro gisa. Emaitza testu-kate baten itzultzera izango da, zenbakia bikoitia edo bakoitia den adieraziz. Pantaila bidez erakutsi funtzioak itzulitako emaitza.
+
+3.	Funtzio bat erabiliz, idatzi NANaren letra kalkulatzen duen programa bat. Hau, prozesu matematiko erraza da, eta NANaren zenbakiaren eta 23 zenbakiaren zatiduraren hondarra lortzean oinarritzen da. Zatiketaren hondarretik abiatuta, letra lortzen da, letra-multzo baten barruan aukeratuta. Letren arraia:
+
+var letras = ['T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E', 'T'];
+
+Beraz, zatiketaren hondarra 0 bada, NANaren letra T izango da, eta hondarra 3 bada, A letra. 
+Egiaztatu sartutako zenbakia 0 eta 99999999 artekoa dela.
+
+4.	Bi array erabiliz, idatz ezazu erabiltzaileari esaldi bat eskatzen dion programa bat, eta programak, sartutako esaldian, zenbat bokal dauden esan behar digu.
+
+5.	Idatz ezazu erabiltzaileari esaldi bat eskatu eta palindromoa den ala ez esango digun programa bat. 
+Palindormo adibidea: “Ze nekeza inori atea irekitzea eztikeria eta ironia zekenez”
+
