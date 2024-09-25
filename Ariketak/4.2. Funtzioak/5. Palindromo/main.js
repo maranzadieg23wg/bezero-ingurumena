@@ -24,6 +24,8 @@ function pal(z){
     let z1 = z.substring(0, z.length/2);
     let z2 = z.substring(z.length/2, z.length);
 
+    z = tilde(z);
+    z = z.toLowerCase();
     
 
     z1= z1.split('');
