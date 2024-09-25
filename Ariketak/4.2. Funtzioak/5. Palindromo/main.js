@@ -44,6 +44,11 @@ function pal(z){
 
 }
 
+
+function tilde(z){
+    return z.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+
 function imp(z){
     document.write(z+"<br>");
 }
