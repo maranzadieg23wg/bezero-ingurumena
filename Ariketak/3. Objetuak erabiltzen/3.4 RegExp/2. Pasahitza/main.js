@@ -6,9 +6,10 @@ function start(){
     let list = jaiotzeData.split("-")
 
 
-    let eraJaio = "(?!.*(" + erabiltzailea + "|" + list[0] + "|" + list[1] + "|" + list[2] + "))";    
-    let balidatu = new RegExp(eraJaio+"[A-Z]+[a-z]{3,}(?=.*[#$@!%&*?])[0-9]+");
+    let eraJaio = "(?!.*(" + erabiltzailea + "|" + list[0] + "|" + list[1] + "|" + list[2] + "))";
+    let balidatu = new RegExp(eraJaio + "^(?=.*[A-Z])(?=.*[a-z]{3,})(?=.*[0-9])(?=.*[#$@!%&*?]).+$");
 
+    
     console.log(balidatu);
 
     if (balidatu.test(pasahitza)) {
