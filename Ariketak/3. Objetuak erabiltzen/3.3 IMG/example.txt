@@ -1,0 +1,8 @@
+Ariketan atxikitutako irudiak, erabiltzaileak dagozkien irudien bidez erabiltzaileak idazten duen katea erabili behar da.
+
+Garrantzitsua
+
+    Zerbait berria idazten bada, aurreko edukiontzia ezabatu beharko da eta berria sortu.
+    Irudiak matrize batean aldez aurretik kargatu eta hitza osatzeko erabili behar dituzu. Demagun konstante bat erabiltzea: 
+        const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' aurrekargatzeko.
+    Idatzitako katea letra larriz bihurtuko dugu (toUpperCase), A eta Z artean ez dauden karaktereak Txuria.gif irudiarekin irudikatuko dira (Erabili RegExp horretarako)
