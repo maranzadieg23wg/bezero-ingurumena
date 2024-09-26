@@ -1,10 +1,10 @@
 function start(){
     let z = prompt("Sartu esaldi bat jakiteko ea den palindromo a la ez");
 
-    z= z.replaceAll(" ", '');
+    za= z.replaceAll(" ", '');
     //z = z.toUpperCase;
 
-    let egi = pal(z);
+    let egi = pal(za);
 
     if(egi){
         imp(z+" esaldia palindromoa da");
@@ -21,25 +21,29 @@ function pal(z){
         return false;
     }*/
 
-    let z1 = z.substring(0, z.length/2);
-    let z2 = z.substring(z.length/2, z.length);
+   
+    z = tilde(z);
+    z = z.toLowerCase();
 
-    
-
-    z1= z1.split('');
-    z2=z2.split('');
+    z1= z.split('');
 
     console.log(z1);
-    console.log(z2);
 
-    for(let i =0;i<z1.length;i++){
-        if(z1[i] != z2[z1.length-1]){
+    for(let i =0;i<z1.length/2;i++){
+        if(z1[i] !== z1[z1.length-i-1]){
+            console.log(z1[i]);
+            console.log(z1[z1.length-i-1]);
             return false;
         }
     }
 
     return true;
 
+}
+
+
+function tilde(z){
+    return z.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
 function imp(z){
