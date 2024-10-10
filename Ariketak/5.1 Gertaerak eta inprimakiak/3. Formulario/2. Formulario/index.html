@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manex Aranzadi Egaña</title>
+    <script src="./main.js"></script>
+    <style type="text/css">
+        .linea {
+            height:100px; 
+	        width:100px; 
+	        background:rgb(0, 0, 0);
+	        display:inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="linea" id="bat"></div>
+    <div class="linea" id="bi"></div>
+    <div class="linea" id="hiru"></div>
+    <div class="linea" id="lau"></div>
+
+    <br>
+
+    <form name="formulario" onchange="kolorea()">
+        <select name="karratuak" id="karra">
+            <option value="bat">Karratu1</option>
+            <option value="bi">Karratu2</option>
+            <option value="hiru">Karratu3</option>
+            <option value="lau">Karratu4</option>
+        </select>
+
+
+        <select name="koloreak" id="kolore">
+            <option value="black">Beltza</option>
+            <option value="red">Gorria</option>
+            <option value="blue">Urdina</option>
+            <option value="green">Berdea</option>
+            <option value="pink">Arroxa</option>
+            <option value="purple">Moratua</option>
+        </select>
+    </form>
+</body>
+</html>
