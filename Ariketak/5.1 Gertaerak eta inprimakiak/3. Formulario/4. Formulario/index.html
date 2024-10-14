@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manex Aranzadi Egaña</title>
+    <script src="./main.js"></script>
+</head>
+<style>
+    #formulario{
+        display: flex;
+        flex-direction: row;
+    }
+    div{
+        margin-right: 3%;
+    }
+
+    .error{
+        background-color: lightcoral;
+    }
+
+    .hidden { display: none; }
+</style>
+<body>
+
+    <form id="formulario">
+        <div id="ezkerra">
+            <label for="Izena">Izena:</label>
+            <input id="ize" type="text" class="datuak"><br>
+
+            <label for="Helbidea">Helbidea:</label>
+            <input id="hel" type="text" class="datuak"><br>
+
+            <label for="Posta Kodea">Posta Kodea:</label>
+            <input id="post" type="text" class="datuak"><br>
+
+            <input type="submit" value="Bidali" onclick="bidali()">
+        </div>
+
+
+        <div id="eskubi">
+            <label for="Abizena">Abizena:</label>
+            <input id="abi" type="text" class="datuak"><br>
+
+            <label for="Herria">Herria:</label>
+            <input id="her" type="text" class="datuak"><br>
+
+            <label for="Probintzia">Probintzia:</label>
+            <input id="prob" type="text" class="datuak"><br>
+
+            <input type="submit" value="Bidali" onclick="garbitu()">
+        </div>
+
+    </form>
+    
+</body>
+</html>
