@@ -1,0 +1,29 @@
+<script src="/socket.io/socket.io.js"></script>
+<p id="nereKonexioa"> </p>
+
+<input type="text" id="te"><br>
+<button onclick="bidali()">Send</button>
+
+
+
+<script>
+    var socket = io();
+    socket.on('ID', function(data){
+        document.getElementById("nereKonexioa").innerHTML = data;
+
+        //socket.emit('jasoDet', data +" erabiltzailea naiz");
+
+        
+    });
+
+    function bidali(){
+        let a = document.getElementById("te").value;
+
+        socket.emit('jasoDet', a);
+    }
+
+
+
+    
+    
+</script> 
