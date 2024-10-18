@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+   <title>Ver todos los párrafos</title> 
+<style type="text/css">
+   #cuadro { width: 400px; height: 200px; border: 1px black solid; float: right; }
+   p { font-size: 1em; font-family: arial; }
+</style>
+<script>
+    function acceder(){
+        //console.log(222)
+        let cuadro = document.getElementById("cuadro");
+        cuadro.style.display = "block";  
+        cuadro.style.float = "right";  
+    }
+    function borrar(){
+        let cuadro = document.getElementById("cuadro");
+        cuadro.style.display = "none";
+    }
+</script>
+</head>
+<body>
+   <h1>Acceso a los párrafos</h1>
+   <div id="cuadro"><p>Este es el contenido del cuadro.</p></div>
+     <p>Este es el primer párrafo de esta página</p>
+     <p>Este es el segundo párrafo</p>
+     <p>Y este el tercero</p>
+     <p onclick="acceder()">Pulsa en este cuarto párrafo para volver 
+         a verlos todos en el recuadro de la derecha.</p>
+     <p onclick="borrar()">Y pulsa en el quinto para borrar el 
+         recuadro de la derecha.</p> 
+</body>
+</html>
