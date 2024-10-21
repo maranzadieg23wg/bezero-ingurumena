@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manex Aranzadi Egaña</title>
+</head>
+<body>
+
+  <div id="proba"></div>
+
+  <input type="button" onclick="ajax()" value="Botoia">
+  
+</body>
+</html>
+
+<script>
+
+  function ajax(){
+    let http = new XMLHttpRequest();
+    http.onreadystatechange = function(){
+
+      if (this.readyState == 4 && this.status == 200){
+        document.getElementById("proba").innerHTML = this.responseText;
+      }
+    };
+
+    http.open('GET', './ajax_info.txt');
+    http.send()
+
+
+  }
+
+</script>
