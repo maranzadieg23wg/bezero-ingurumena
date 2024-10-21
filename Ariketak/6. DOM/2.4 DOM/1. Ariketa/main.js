@@ -7,9 +7,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     //zenbat link dauden
     console.log(linkTotal.length);
+    document.getElementById("loturaKop").innerHTML = linkTotal.length;
 
     //azken aurreko linka
     console.log(linkTotal[linkTotal.length-2]);
+    document.getElementById("lastLotura").innerHTML = linkTotal[linkTotal.length-2];
    
 
     //zenbat prueba dauden
@@ -20,6 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
     console.log(zenbat);
+    document.getElementById("lotur").innerHTML = zenbat;
 
 
     //Zenbat lotura dauden
@@ -32,6 +35,7 @@ document.addEventListener("DOMContentLoaded", function() {
         e++;
     }
     console.log(e);
+    document.getElementById("hiru").innerHTML = e;
 
      
 });
