@@ -87,6 +87,7 @@ function gehituAgendara(izena, abizena, tel, fink){
 
 
 function ikusi(){
+    document.getElementById("kontaktuak").innerHTML="";
     for(let i =0;i<agenda.length;i++){
         let temp = agenda[i];
         temp.toString();
