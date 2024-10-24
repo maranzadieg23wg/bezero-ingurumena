@@ -91,6 +91,7 @@ function ikusi(){
     for(let i =0;i<agenda.length;i++){
         let temp = agenda[i];
         temp.toString();
+        //console.log(temp.getTel());
     }
 }
 
