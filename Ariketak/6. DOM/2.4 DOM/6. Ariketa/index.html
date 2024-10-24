@@ -8,7 +8,85 @@
    p  { font-size: 1em; font-family: arial;  }
 </style>
 <script>
-    
+    function restaurar() {
+            document.getElementById("cuadro").innerHTML = `
+                <h4 id="primero">primer texto fijo</h4>
+                <h4 id="segundo">Segundo texto fijo</h4>
+                <h4 id="tercero">Tercer texto fijo</h4>
+            `;
+        }
+
+        
+        function debajo() {
+            let nuevoElemento = document.createElement("h4");
+            nuevoElemento.textContent = "Nuevo elemento al final";
+            document.getElementById("cuadro").appendChild(nuevoElemento);
+        }
+
+        
+        function delante() {
+            
+            
+            
+            let nuevoElemento = document.createElement("h4");
+            nuevoElemento.textContent = "Nuevo elemento delante del segundo";
+            let cuadro = document.getElementById("cuadro");
+            let segundoElemento = cuadro.children[1];
+            segundoElemento.parentNode.insertBefore(nuevoElemento, segundoElemento);
+        }
+
+        
+        function reemplazar() {
+            let nuevoElemento = document.createElement("h4");
+            nuevoElemento.textContent = "Reemplazo del primer elemento";
+
+            let cuadro = document.getElementById("cuadro");
+            let primerElemento = cuadro.children[0];
+            primerElemento.parentNode.replaceChild(nuevoElemento, primerElemento);
+        }
+
+        
+        function suprimir() {
+            let cuadro = document.getElementById("cuadro");
+            let tercerElemento = cuadro.children[2];  
+            
+            if (tercerElemento) {
+               cuadro.removeChild(tercerElemento);
+            } else {
+               alert("Hirugarren elementua ez da existitzen.");
+            }
+         }
+
+        
+         function cambiar() {
+            let cuadro = document.getElementById("cuadro");
+            let segundoElemento = cuadro.children[1];
+            let ultimoElemento = cuadro.lastElementChild;
+
+            if (segundoElemento && ultimoElemento) {
+              
+               let temp = segundoElemento;
+               cuadro.replaceChild(ultimoElemento, segundoElemento);
+
+               
+               cuadro.appendChild(temp);
+            }
+         }
+
+
+        
+         function copiar() {
+            let ultimoElemento = document.getElementById("cuadro").lastElementChild;
+
+            if (ultimoElemento) {
+               
+               if (ultimoElemento.id !== "primero" && ultimoElemento.id !== "segundo" && ultimoElemento.id !== "tercero") {
+                     let copiaElemento = ultimoElemento.cloneNode(true);
+                     document.getElementById("cuadro").appendChild(copiaElemento); 
+               } 
+            }
+         }
+
 </script>
 </head>
 <body>
