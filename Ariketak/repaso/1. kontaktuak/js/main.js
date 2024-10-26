@@ -8,7 +8,7 @@ function gehituTel(){
     //console.log(z.length);
 
     if(z.length+1 <=5){
-        let base = "Tel:<input type='text' class='tel'  name='tel'><input type='checkbox' class='fink' name='finkoa'><br>";
+        let base = "Tel:<input type='text' class='tel'  name='tel'><input type='checkbox' class='fink' name='finkoa'>: Mugikorra<br>";
 
         document.getElementById("formulario").innerHTML=te+base;
     }
@@ -35,6 +35,7 @@ function gehituKontakt(){
     var finkValue = [];
     for (var pair of formData.entries()) {
         if (pair[0] === 'finkoa') {
+            console.log(pair[1]);
             finkValue.push(pair[1]);
         }
     }
@@ -54,7 +55,7 @@ function gehituAgendara(izena, abizena, tel, fink){
     let ko = new kontakto(izena, abizena);
     for(let i =0;i<tel.length;i++){
         let temp;
-        if(fink[i]===null){
+        if(fink[i]==="on"){
             temp = false;
         }else{
             temp = true;
@@ -71,7 +72,7 @@ function gehituAgendara(izena, abizena, tel, fink){
         let temp = agenda[i];
         if(temp.berbera(izena, abizena)){
             agenda[i]=ko;
-            i= agenda.length;
+            i= agenda.length+1;
             ezist = true;
         }
     }
@@ -91,7 +92,7 @@ function ikusi(){
     for(let i =0;i<agenda.length;i++){
         let temp = agenda[i];
         temp.toString();
-        //aconsole.log(temp.getTel());
+        //console.log(temp.getTel());
     }
 }
 
@@ -114,13 +115,31 @@ class kontakto{
         this.telefono = [];
     }
 
-    telGehi(telefono, egia){
-        let lista =[telefono, egia];
+    telGehi(telefonoa, egia){
+        let lista =[telefonoa, egia];
 
         this.telefono.push(lista);
     }
 
     toString(){
+        document.getElementById("kontaktuak").innerHTML+= "izena: "+this.izena+"<br>";
+        document.getElementById("kontaktuak").innerHTML+= "abizena: "+this.abizena+"<br>";
+        for(let i=0;i<this.telefono.length;i++){
+            let tel = this.telefono[i][0];
+            let etxe = this.telefono[i][1];
+
+            if(etxe){
+                etxe = "etxekoa";
+            }else{
+                etxe = "mugikorra";
+            }
+            document.getElementById("kontaktuak").innerHTML+= "Telefono: "+tel+" : "+etxe+"<br>";
+
+
+        }
+        document.getElementById("kontaktuak").innerHTML+= "<hr>";
+
+
         console.log("izena: "+this.izena+" abizena: "+this.abizena+" tel: "+this.telefono);
     }
 
@@ -134,10 +153,6 @@ class kontakto{
 
     getTel(){
         return this.telefono;
-    }
-
-    telGehi(telefon){
-        this.telefono=telefon;
     }
     
     berbera(izena, abizena){
