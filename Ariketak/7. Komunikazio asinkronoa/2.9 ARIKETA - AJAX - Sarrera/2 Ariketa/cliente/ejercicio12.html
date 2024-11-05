@@ -20,16 +20,15 @@ body { margin: 0; }
   right: 3px;
 }
 </style>
-<script type="text/javascript">
-</script>
+<script src="./main.js"></script>
 </head>
-<body>
+<body onload="lortuDatuak()">
 <div id="ticker"></div>
 
 <div id="acciones">
-  <input type="button" id="detener" value="Detener"/>
-  <input type="button" id="anterior" value="&laquo; Anterior" />
-  <input type="button" id="siguiente" value="Siguiente &raquo;" />
+  <input type="button" onclick="detener()" id="detener" value="Detener"/>
+  <input type="button" onclick="anterior()" id="anterior" value="&laquo; Anterior" />
+  <input type="button" onclick="siguiente()" id="siguiente" value="Siguiente &raquo;" />
 </div>
 
 <div id="contenidos">
