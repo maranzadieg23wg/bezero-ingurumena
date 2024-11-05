@@ -13,7 +13,8 @@ RUN docker-php-ext-configure zip --with-libzip && \
 # Instalatu sql kontsultak egiteko    
 RUN docker-php-ext-install mysqli pdo pdo_mysql
     
-
+# Configura permisos de archivo si es necesario
+RUN chown -R www-data:www-data /var/www/html
     
 
 # Instala Composer
