@@ -1,26 +1,29 @@
 version: '3.8'
 
 services:
-  # Configuración de Nginx para servir archivos estáticos
   web:
     container_name: nginx
     image: nginx:latest
     ports:
       - "8080:80"
     volumes:
-      # Mapea la carpeta 'cliente' del usuario a '/var/www/html' en Nginx
       - ./cliente:/var/www/html
-      # Mapea la configuración personalizada de Nginx
       - ./server/nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - php-fpm
+    networks:
+      - app-network
 
-  # Configuración de PHP-FPM para procesar el código PHP
   php-fpm:
     container_name: php
-    build: ./server/  # Se asume que tienes un Dockerfile en esta carpeta
+    build: ./server/  # Asegúrate de tener un Dockerfile en esta carpeta
     volumes:
-      # Mapea la carpeta 'src' del servidor a '/var/www/html' en PHP-FPM
       - ./server/src:/var/www/html
     environment:
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: roo  # Si tienes un servicio de MySQL
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
