@@ -1,9 +1,10 @@
-let url = "http://10.14.0.2:8080/compruebaDisponibilidadXML.php";
+//let url = "http://10.14.0.2:8080/compruebaDisponibilidadXML.php";
+let url = "http://192.168.1.115:8080/compruebaDisponibilidadXML.php";
 
 function libre(){
     
     let login = document.getElementById("login").value;
-    //console.log(login);
+    console.log(login);
     let http = new XMLHttpRequest();
     http.onreadystatechange = function(){
         
@@ -13,7 +14,7 @@ function libre(){
         if (this.readyState === 4 && this.status === 200) {
             console.log("Respuesta del servidor:", this.responseText);
             //alert(this.responseText);
-            idatzi(this.responseText);
+            idatzi(xmlAnalizatu(this.responseText));
             
             
         } else if (this.readyState === 4) {
@@ -30,6 +31,32 @@ function libre(){
     http.send("login=" + login+"&nocache="+Math.random);
 }
 
-function idatzi(text){
-    document.getElementById("disponibilidad").innerHTML = text;
+function idatzi(text) {
+
+    let dockUL = "<ul>";
+
+    for (let i = 0; i < text.length; i++) {
+        dockUL += "<li>" + text[i] + "</li>";
+    }
+
+    dockUL += "</ul>";
+
+    document.getElementById("disponibilidad").innerHTML = dockUL;
+}
+
+
+
+function xmlAnalizatu(erantzuna){
+    let parser = new DOMParser();
+    let xmlDoc = parser.parseFromString(erantzuna, "text/xml");
+
+
+    let loginNodes = xmlDoc.getElementsByTagName("login");
+
+    let loginValues = [];
+    for (let i = 0; i < loginNodes.length; i++) {
+        loginValues.push(loginNodes[i].textContent);
+    }
+
+    return loginValues;
 }
