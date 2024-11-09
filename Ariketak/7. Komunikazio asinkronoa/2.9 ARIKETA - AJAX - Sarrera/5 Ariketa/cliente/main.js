@@ -1,5 +1,5 @@
 //let url = "http://10.14.0.2:8080/compruebaDisponibilidadXML.php";
-let url = "http://192.168.1.115:8080/compruebaDisponibilidadXML.php";
+let url = "http://192.168.1.115:8080/compruebaDisponibilidadJSON.php";
 
 function libre(){
     
@@ -27,8 +27,14 @@ function libre(){
 
     http.open('POST', url, true);
 
-    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    http.send("login=" + login+"&nocache="+Math.random);
+    http.setRequestHeader("Content-Type", "application/json");
+        
+    let data = {
+        login: login,
+        nocache: Math.random()
+    };
+
+    http.send(JSON.stringify(data));
 }
 
 function idatzi(text) {
@@ -47,16 +53,13 @@ function idatzi(text) {
 
 
 function xmlAnalizatu(erantzuna){
-    let parser = new DOMParser();
-    let xmlDoc = parser.parseFromString(erantzuna, "text/xml");
-
-
-    let loginNodes = xmlDoc.getElementsByTagName("login");
-
+    let data = JSON.parse(erantzuna);
+    
     let loginValues = [];
-    for (let i = 0; i < loginNodes.length; i++) {
-        loginValues.push(loginNodes[i].textContent);
+    if (data.disponible === "no" && data.alternativas) {
+        loginValues = data.alternativas;
     }
-
+    
     return loginValues;
+    
 }

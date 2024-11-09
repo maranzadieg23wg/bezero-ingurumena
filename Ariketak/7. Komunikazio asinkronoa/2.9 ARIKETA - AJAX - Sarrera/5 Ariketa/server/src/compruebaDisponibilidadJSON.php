@@ -1,10 +1,16 @@
 <?php
-$login = $_POST["login"];
+
+
+$jsonData = file_get_contents("php://input");
+$data = json_decode($jsonData, true);
+$login = $data["login"] ?? null;
+
+
+
 
 srand((double)microtime()*1000000);
 $numeroAleatorio = rand(0, 10);
 
-// Simular un falso retardo por la red y el servidor
 sleep($numeroAleatorio % 2);
 
 $disponible = ($numeroAleatorio % 2 == 0)? "si" : "no";
