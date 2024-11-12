@@ -95,7 +95,7 @@ function jsonAnalizatu(erantzuna){
 
     console.log(data);
     
-    loginValues = data;
+    loginValues = Object.values(data);
     
     return loginValues;
     
