@@ -1,4 +1,4 @@
-<?php
+<?php 
 header("Content-Type: application/xml");
 
 $municipios["01"]["0014"] = "Alegría-Dulantzi";
@@ -8121,5 +8121,4 @@ foreach($losMunicipios as $codigo => $nombre) {
 }
 
 echo "<municipios>\n".implode("\n", $elementos_xml)."</municipios>";
-
 ?>
