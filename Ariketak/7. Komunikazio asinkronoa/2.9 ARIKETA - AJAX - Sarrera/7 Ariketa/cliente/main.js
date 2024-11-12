@@ -1,4 +1,4 @@
-let url = "http://10.14.0.2:8080/cargaProvinciasXML.php";
+let url = "http://10.14.0.2:8080/cargaProvinciasJSON.php";
 let url1 = "http://10.14.0.2:8080/proba.php"
 //let url = "http://192.168.1.115:8080/compruebaDisponibilidadXML.php";
 
@@ -13,7 +13,7 @@ function libre(){
         if (this.readyState === 4 && this.status === 200) {
             //console.log("Respuesta del servidor:", this.responseText);
             //alert(this.responseText);
-            idatzi(xmlAnalizatu(this.responseText), "herrialdea");
+            idatzi(jsonAnalizatu(this.responseText), "herrialdea");
             
             
         } else if (this.readyState === 4) {
@@ -24,10 +24,11 @@ function libre(){
     };
 
 
-    http.open('POST', url, true);
+    
 
     //http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     //http.send("login=" + login+"&nocache="+Math.random);
+    http.open('POST', url, true);
     http.send();
 }
 
@@ -43,7 +44,7 @@ function herriaAukeratu(id){
             console.log("Respuesta del servidor:", this.responseText);
             console.log("Respuesta del servidor:", this.responseXML);
             //alert(this.responseText);
-            idatzi(xmlAnalizatu(this.responseText), "herria");
+            idatzi(jsonAnalizatu(this.responseText), "herria");
             
             
         } else if (this.readyState === 4) {
@@ -56,14 +57,15 @@ function herriaAukeratu(id){
 
     http.open('POST', url1, true);
 
-    http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
     console.log("id:", id);
     if(id < 10){
         id = "0" +id;
     }
     
-    
-    http.send("provincia=" + id+"&nocache="+Math.random);
+    http.setRequestHeader("Content-Type", "application/json");
+    http.send(JSON.stringify({ provincia: id, nocache: Math.random() }));
+
     //http.send();
 }
 
@@ -88,18 +90,13 @@ function idatzi(text, non) {
 
 
 
-function xmlAnalizatu(erantzuna){
-    let parser = new DOMParser();
-    let xmlDoc = parser.parseFromString(erantzuna, "text/xml");
+function jsonAnalizatu(erantzuna){
+    let data = JSON.parse(erantzuna);
 
-
-    let loginNodes = xmlDoc.getElementsByTagName("nombre");
-
-    let loginValues = [];
-    for (let i = 0; i < loginNodes.length; i++) {
-        //console.log(loginNodes);
-        loginValues.push(loginNodes[i].textContent);
-    }
-
+    console.log(data);
+    
+    loginValues = data;
+    
     return loginValues;
+    
 }
