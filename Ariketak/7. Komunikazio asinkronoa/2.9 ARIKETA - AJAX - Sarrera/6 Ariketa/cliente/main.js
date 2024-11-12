@@ -1,10 +1,8 @@
-//let url = "http://10.14.0.2:8080/compruebaDisponibilidadXML.php";
-let url = "http://192.168.1.115:8080/compruebaDisponibilidadJSON.php";
+let url = "http://10.14.0.2:8080/cargaProvinciasXML.php";
+//let url = "http://192.168.1.115:8080/compruebaDisponibilidadXML.php";
 
 function libre(){
     
-    let login = document.getElementById("login").value;
-    console.log(login);
     let http = new XMLHttpRequest();
     http.onreadystatechange = function(){
         
@@ -27,39 +25,43 @@ function libre(){
 
     http.open('POST', url, true);
 
-    http.setRequestHeader("Content-Type", "application/json");
-        
-    let data = {
-        login: login,
-        nocache: Math.random()
-    };
-
-    http.send(JSON.stringify(data));
+    //http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    //http.send("login=" + login+"&nocache="+Math.random);
+    http.send();
 }
 
 function idatzi(text) {
 
-    let dockUL = "<ul>";
+    let lista = document.getElementById("herrialdea");
+
+    lista.innerHTML = "";
 
     for (let i = 0; i < text.length; i++) {
-        dockUL += "<li>" + text[i] + "</li>";
+
+        let option = document.createElement("option");
+        option.value = i+1;
+        option.text = text[i];
+
+        lista.appendChild(option);
     }
 
-    dockUL += "</ul>";
-
-    document.getElementById("disponibilidad").innerHTML = dockUL;
+    
 }
 
 
 
 function xmlAnalizatu(erantzuna){
-    let data = JSON.parse(erantzuna);
-    
+    let parser = new DOMParser();
+    let xmlDoc = parser.parseFromString(erantzuna, "text/xml");
+
+
+    let loginNodes = xmlDoc.getElementsByTagName("nombre");
+
     let loginValues = [];
-    if (data.disponible === "no" && data.alternativas) {
-        loginValues = data.alternativas;
+    for (let i = 0; i < loginNodes.length; i++) {
+        console.log(loginNodes);
+        loginValues.push(loginNodes[i].textContent);
     }
-    
+
     return loginValues;
-    
 }

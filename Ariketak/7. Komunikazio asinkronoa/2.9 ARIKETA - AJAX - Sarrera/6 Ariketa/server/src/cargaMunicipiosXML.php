@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 header("Content-Type: application/xml");
 
 $municipios["01"]["0014"] = "Alegría-Dulantzi";

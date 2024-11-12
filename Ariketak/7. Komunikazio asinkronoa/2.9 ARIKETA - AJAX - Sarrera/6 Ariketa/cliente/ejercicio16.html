@@ -7,13 +7,20 @@
 <script src="./main.js"></script>
 </head>
 
-<body>
+<body onload="libre()">
 
-	Herrialdea:
-	<input id="herrialdea" name="herrialdea"><br>
+	Probintziak:
+	<select id="herrialdea" name="herrialdea" onchange="this.form.submit()">
+		<option value="d">Seleccionar pueblo</option>
+	</select>
+	<br>
+	<br>
 
 	Herria:
-	<input id="herria" name="herria"><br>
+	<select id="herria" name="herria" onchange="this.form.submit()">
+		<option value="d">Seleccionar pueblo</option>
+	</select>
 
 </body>
 </html>
+
