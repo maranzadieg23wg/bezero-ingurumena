@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 header("Content-Type: application/xml");
 
 $provincias["01"] = "Álava/Araba";
@@ -55,11 +55,17 @@ $provincias["49"] = "Zamora";
 $provincias["50"] = "Zaragoza";
 
 
+//Ordenatuta zenbakiaren arabera
+uksort($provincias, function($a, $b) {
+  return intval($a) - intval($b);
+});
 
-foreach($provincias as $codigo => $nombre) {
-  $elementos_xml[] = "<provincia>\n<codigo>$codigo</codigo>\n<nombre>".$nombre."</nombre>\n</provincia>";
+$elementos_xml = [];
+
+foreach ($provincias as $codigo => $nombre) {
+  $elementos_xml[] = "<provincia>\n<codigo>$codigo</codigo>\n<nombre>$nombre</nombre>\n</provincia>";
 }
 
-echo "<provincias>\n".implode("\n", $elementos_xml)."\n</provincias>"
+echo "<provincias>\n" . implode("\n", $elementos_xml) . "\n</provincias>";
 
 ?>

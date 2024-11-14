@@ -1,4 +1,5 @@
-﻿<?php
+<?php 
+header("Content-Type: application/xml");
 
 $municipios["01"]["0014"] = "Alegría-Dulantzi";
 $municipios["01"]["0029"] = "Amurrio";
@@ -8120,6 +8121,4 @@ foreach($losMunicipios as $codigo => $nombre) {
 }
 
 echo "{".implode(",", $elementos_json)."}"
-
-
 ?>

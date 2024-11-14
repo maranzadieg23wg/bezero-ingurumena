@@ -28,7 +28,7 @@ function libre(){
     http.open('POST', url, true);
 
     http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    http.send("login=" + login+"&nocache="+Math.random);
+    http.send("login=08&nocache="+Math.random);
 }
 
 function idatzi(text) {

@@ -1,4 +1,5 @@
-﻿<?php
+<?php
+header("Content-Type: application/xml");
 
 $provincias["01"] = "Álava/Araba";
 $provincias["02"] = "Albacete";
@@ -54,6 +55,10 @@ $provincias["49"] = "Zamora";
 $provincias["50"] = "Zaragoza";
 
 
+//Ordenatuta zenbakiaren arabera
+uksort($provincias, function($a, $b) {
+  return intval($a) - intval($b);
+});
 
 foreach($provincias as $codigo => $nombre) {
   $elementos_json[] = "\"$codigo\": \"$nombre\"";
