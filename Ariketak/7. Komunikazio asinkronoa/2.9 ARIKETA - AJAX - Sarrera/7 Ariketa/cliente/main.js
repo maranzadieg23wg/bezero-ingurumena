@@ -41,8 +41,8 @@ function herriaAukeratu(id){
        
         
         if (this.readyState === 4 && this.status === 200) {
-            console.log("Respuesta del servidor:", this.responseText);
-            console.log("Respuesta del servidor:", this.responseXML);
+            //console.log("Respuesta del servidor:", this.responseText);
+            //console.log("Respuesta del servidor:", this.responseXML);
             //alert(this.responseText);
             idatzi(jsonAnalizatu(this.responseText), "herria");
             
@@ -58,13 +58,15 @@ function herriaAukeratu(id){
     http.open('POST', url1, true);
 
     
-    console.log("id:", id);
+    //console.log("id:", id);
     if(id < 10){
         id = "0" +id;
     }
+    //console.log("Provincia: "+provincia);
     
     http.setRequestHeader("Content-Type", "application/json");
-    http.send(JSON.stringify({ provincia: id, nocache: Math.random() }));
+    //console.log(JSON.stringify({"provincia": id, nocache: Math.random()}));
+    http.send(JSON.stringify({"provincia": id, nocache: Math.random()}));
 
     //http.send();
 }
@@ -72,11 +74,15 @@ function herriaAukeratu(id){
 
 function idatzi(text, non) {
 
+    //console.log(text);
+    
     let lista = document.getElementById(non);
 
     lista.innerHTML = "";
 
     for (let i = 0; i < text.length; i++) {
+
+        //console.log(text[i]+ " "+(i+1));
 
         let option = document.createElement("option");
         option.value = i+1;
@@ -90,13 +96,15 @@ function idatzi(text, non) {
 
 
 
-function jsonAnalizatu(erantzuna){
+function jsonAnalizatu(erantzuna) {
+    //console.log(erantzuna);
     let data = JSON.parse(erantzuna);
 
-    console.log(data);
-    
-    loginValues = Object.values(data);
+    let clavesOrdenadas = Object.keys(data).sort((a, b) => parseInt(a) - parseInt(b)); 
+
+    let loginValues = clavesOrdenadas.map(key => data[key]);
+
+
     
     return loginValues;
-    
 }

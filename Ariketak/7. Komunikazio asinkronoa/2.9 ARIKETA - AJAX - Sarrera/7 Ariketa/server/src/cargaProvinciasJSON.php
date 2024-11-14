@@ -1,5 +1,5 @@
 <?php
-header("Content-Type: application/xml");
+header("Content-Type: application/json");
 
 $provincias["01"] = "Álava/Araba";
 $provincias["02"] = "Albacete";

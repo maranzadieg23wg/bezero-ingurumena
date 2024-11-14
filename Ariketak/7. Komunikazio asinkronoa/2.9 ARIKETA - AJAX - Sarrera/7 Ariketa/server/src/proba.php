@@ -1,5 +1,5 @@
 <?php 
-header("Content-Type: application/xml");
+header("Content-Type: application/json");
 
 $municipios["01"]["0014"] = "Alegría-Dulantzi";
 $municipios["01"]["0029"] = "Amurrio";
@@ -8113,12 +8113,32 @@ $municipios["51"]["0013"] = "Ceuta";
 $municipios["52"]["0018"] = "Melilla";
 
 
-$provincia = trim($_POST["provincia"]);
-$losMunicipios = $municipios[$provincia];
+$data = json_decode(file_get_contents('php://input'), true);
 
-foreach($losMunicipios as $codigo => $nombre) {
-  $elementos_json[] = "\"$codigo\": \"$nombre\"";
+// Verificar que se ha recibido la provincia
+if (isset($data['provincia'])) {
+    $provincia = $data['provincia']; // Asignar la provincia recibida
+
+    // Verificar que la provincia existe en el array de municipios
+    if (isset($municipios[$provincia])) {
+        $losMunicipios = $municipios[$provincia]; // Asignar los municipios de la provincia
+
+        // Crear el array de elementos JSON
+        $elementos_json = [];
+        foreach ($losMunicipios as $codigo => $nombre) {
+            $elementos_json[] = "\"$codigo\": \"$nombre\"";
+        }
+
+        // Verificar que $elementos_json no esté vacío antes de usar implode
+        if (!empty($elementos_json)) {
+            echo "{".implode(",", $elementos_json)."}"; // Devolver la respuesta JSON
+        } else {
+            echo "{}";  // Si no hay municipios, devolver un objeto vacío
+        }
+    } else {
+        echo "Error: No se encontraron municipios para la provincia '$provincia'.";
+    }
+} else {
+    echo "Error: No se recibió el parámetro 'provincia' en la solicitud.";
 }
-
-echo "{".implode(",", $elementos_json)."}"
 ?>
