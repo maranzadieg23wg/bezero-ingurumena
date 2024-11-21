@@ -1,0 +1,40 @@
+{
+  "Peliculas": [
+    {
+      "Director": "Quentin Tarantino",
+      "Titulo": "Reservoir dogs",
+      "imagen": "reservoirdogs.jpeg",
+      "sinopsis": "reservoirdogs.txt"
+    },
+    {
+      "Director": "Danny Boyle",
+      "Titulo": "Trainspotting",
+      "imagen": "trainspotting.jpeg",
+      "sinopsis": "trainspotting.txt"
+    },
+    {
+      "Director": "Christopher Nolan",
+      "Titulo": "Batman Begins",
+      "imagen": "batmanbegins.jpeg",
+      "sinopsis": "batmanbegins.txt"
+    },
+    {
+      "Director": "Christopher Nolan",
+      "Titulo": "Inception",
+      "imagen": "inception.jpeg",
+      "sinopsis": "inception.txt"
+    },
+    {
+      "Director": "Guy Ritchie",
+      "Titulo": "Snatch",
+      "imagen": "snatch.jpeg",
+      "sinopsis": "snatch.txt"
+    },
+    {
+      "Director": "Ridley Scott",
+      "Titulo": "Gladiator",
+      "imagen": "gladiator.jpeg",
+      "sinopsis": "gladiator.txt"
+    }
+  ]
+}
