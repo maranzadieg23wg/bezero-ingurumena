@@ -74,3 +74,13 @@ function sinop(sinp, izena){
 
 
 peliculaList();
+
+
+
+//  element.addEventListener(event, callback);
+// 'click'
+// 'submit'
+// 'keydown'
+// 'keyup'
+// 'mousemove'
+// 'change'
