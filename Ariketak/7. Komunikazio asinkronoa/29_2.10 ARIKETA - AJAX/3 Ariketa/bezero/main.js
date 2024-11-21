@@ -67,7 +67,7 @@ function sinop(sinp, izena){
         }
     };
     
-    let urlWithParams = `${url1}?fichero=${encodeURIComponent(izena)}`;
+    let urlWithParams = `${url1}?fichero=${izena}`;
     http.open("GET", urlWithParams, true);
     http.send();
 }
