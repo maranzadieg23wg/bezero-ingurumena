@@ -1,6 +1,6 @@
 <forecasts>
 	<forecast>
-		<fecha>21/11/2023</fecha>
+		<fecha>'21/11/2023'</fecha>
 		<synopticalDescription>Europan antizikloia. Mediterraneoan ezegonkortasuna. Britaniar uharteen mendebaldean depresioa.</synopticalDescription>
 		<weather>
 			<visibility>superior a 10 Km</visibility>
@@ -29,7 +29,7 @@
 		</ocean>
 	</forecast>
 	<forecast>
-		<fecha>22/11/2023</fecha>
+		<fecha>'22/11/2023'</fecha>
 		<synopticalDescription>Depresioak Britaniar uharteetan du erdigunea, horri loturiko fronte hotza Galiziara hurbiltzen ari da.</synopticalDescription>
 		<weather>
 			<visibility>superior a 10 Km</visibility>
@@ -58,7 +58,7 @@
 		</ocean>
 	</forecast>
 	<forecast>
-		<fecha>23/11/2023</fecha>
+		<fecha>'23/11/2023'</fecha>
 		<synopticalDescription>Antizikloia Atlantikoan kokatua dago eta Ipar Europan depresioa. Itsas fluxua. </synopticalDescription>
 		<weather>
 			<visibility>entre 4 y 10 Km</visibility>

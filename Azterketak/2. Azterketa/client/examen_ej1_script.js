@@ -1,5 +1,5 @@
 // inicialización (1 punto)
-
+//HTML aldatu egin det gehitzeko ID-ak
 
 let url = '../server/restaurantes.json';
 let http = new XMLHttpRequest();

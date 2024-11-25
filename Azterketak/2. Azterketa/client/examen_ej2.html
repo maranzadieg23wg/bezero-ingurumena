@@ -10,15 +10,15 @@
 	<body>
 		<div id="prevision" style="border: solid 1px;">
 			<h2>Parte meteorológico</h2>
-			<button id="cargar">Cargar</button>
+			<button id="cargar" onclick="inicio()">Cargar</button>
 			<select id="idioma">
 				<option value="eu">EU</option>
 				<option value="es">ES</option>
 			</select>
-			<p><label id="label_fecha">Seleccionar fecha:</label></p>
+			<p><label id="label_fecha">Seleccionar fecha:</label></p><div id="datak"></div>
 			<p><label>Prevision:</label><textarea rows="5" id="prevision_meteo" style="width:75vw"></textarea></p>
-			<p><button id="mostrar">+info</button></p>
-			<div class="oculto" id="adicional">
+			<p><button id="mostrar" onclick="infoForecast()">+info</button></p>
+			<div class="" id="adicional">
 				<label>Tiempo:</label><img id="tiempo" class="espacios"></img>
 				<label>Viento:</label><img id="viento" class="espacios"></img>
 				<label>Luna:</label><img id="luna" class="espacios"></img>
