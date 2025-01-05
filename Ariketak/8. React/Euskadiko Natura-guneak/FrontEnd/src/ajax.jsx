@@ -1,29 +1,30 @@
-import React, { useEffect, useState } from 'react';
+// DataContext.js
+import React, { createContext, useContext, useState, useEffect } from 'react';
 
+// Creamos el contexto
+const DataContext = createContext();
 
-function Ajax() {
+// Hook personalizado para acceder al contexto
+export const useData = () => useContext(DataContext);
 
+// Proveedor que va a envolver nuestra aplicación y compartir los datos
+export function DataProvider({ children }) {
     const [data, setData] = useState(null);
 
-  useEffect(() => {
-    // Hacemos la solicitud usando la API fetch
-    fetch('http://localhost:3000/espacios.php')  // La URL de tu archivo PHP
-      .then((response) => response.json())  // Convertimos la respuesta en formato JSON
-      .then((data) => {
-        setData(data);  // Guardamos los datos recibidos en el estado
-      })
-      .catch((error) => {
-        console.error('Hubo un error:', error);  // Manejamos el error si ocurre
-      });
-  }, []);
+    useEffect(() => {
+        // Realizamos la solicitud fetch y guardamos los datos en el estado
+        fetch('http://192.168.1.115:8000/espacios.php')
+            .then((response) => response.json())
+            .then((data) => setData(data))
+            .catch((error) => {
+                console.error('Hubo un error:', error);
+            });
+    }, []);
 
-
-
-  return (
-    <div>
-      
-    </div>
-  );
+    return (
+        // El proveedor hace que los datos estén disponibles para los componentes hijos
+        <DataContext.Provider value={data}>
+            {children}
+        </DataContext.Provider>
+    );
 }
-
-export default Ajax;
