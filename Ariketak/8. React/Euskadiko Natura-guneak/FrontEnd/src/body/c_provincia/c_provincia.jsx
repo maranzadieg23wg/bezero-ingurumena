@@ -36,8 +36,8 @@ function CProvincia() {
                   type="radio" 
                   id="contactChoice3" 
                   name="contact" 
-                  value="Guipuzkoa" 
-                  checked={selectedProvince === 'Guipuzkoa'} 
+                  value="Gipuzkoa" 
+                  
                   onChange={handleProvinceChange}
                 />
                 <label htmlFor="contactChoice3">Guipuzkoa</label>
