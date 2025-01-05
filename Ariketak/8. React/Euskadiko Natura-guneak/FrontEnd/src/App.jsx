@@ -1,16 +1,17 @@
-
+import React from 'react';
 import Header from './header';
 import CMain from './body/c_main';
 
-import Ajax from './ajax';
+import { DataProvider } from './ajax';
 
 function App() {
   return (
-    <div>
-      <Ajax />
-      <Header />
-      <CMain />
-    </div>
+    <DataProvider>
+      <div>
+        <Header />
+        <CMain />
+      </div>
+    </DataProvider>
   );
 }
 
