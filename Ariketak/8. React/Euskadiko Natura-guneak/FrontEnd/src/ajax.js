@@ -18,7 +18,7 @@ export function DataProvider({ children }) {
             .then((response) => response.json())
             .then((data) => setData(data))
             .catch((error) => {
-                console.error('Hubo un error:', error);
+                console.error('Arazo  bat gertatu da:', error);
             });
     }, []);
 
