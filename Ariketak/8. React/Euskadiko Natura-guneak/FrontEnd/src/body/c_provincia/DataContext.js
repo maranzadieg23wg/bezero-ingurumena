@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState } from 'react';
 
-// Crear el contexto
 const ProvinceContext = createContext();
 
 // Hook para acceder al contexto

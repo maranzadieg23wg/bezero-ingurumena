@@ -1,10 +1,9 @@
-// DataContext.js
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
-// Creamos el contexto
+// Context create
 const DataContext = createContext();
 
-// Hook personalizado para acceder al contexto
+
 export const useData = () => useContext(DataContext);
 
 // Proveedor que va a envolver nuestra aplicación y compartir los datos
@@ -23,7 +22,7 @@ export function DataProvider({ children }) {
     }, []);
 
     return (
-        // El proveedor hace que los datos estén disponibles para los componentes hijos
+        // Pasamos el estado a través del contexto
         <DataContext.Provider value={data}>
             {children}
         </DataContext.Provider>

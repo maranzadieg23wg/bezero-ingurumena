@@ -1,5 +1,5 @@
 import React from 'react';
-import { useProvince } from './DataContext';  // Importamos el hook
+import { useProvince } from './DataContext';  // Importamos el hook que nos permite acceder al valor y la función de cambio
 
 function CProvincia() {
     const { selectedProvince, handleProvinceChange } = useProvince();  // Accedemos al valor y la función de cambio
