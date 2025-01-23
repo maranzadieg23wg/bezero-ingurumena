@@ -14,7 +14,25 @@ function DatuakErakutsi({datuak}) {
     }
 
 
+    const [datos, setDatos] = useState(
+        {
+            izena: "",
+            helbidea: "",
+            ikasketak: false,
+        }
+    );
 
+    function handleChange(e){
+        setDatos({
+            ...datos,
+            [e.target.name]: e.target.value,
+        });
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        console.log(datos);
+    }
 
   return (
     
